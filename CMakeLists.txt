@@ -11,6 +11,7 @@ add_library(${PROJECT_NAME} SHARED
     src/main.cpp
     src/layoutSelectionLayer.hpp
     src/layoutSelectionLayer.cpp
+    src/getProfilePage.hpp
     # Add any extra C++ source files here
 )
 
