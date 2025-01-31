@@ -1,5 +1,5 @@
 # ProfileLayouts
-This is where she makes a mod.
+Profile Layouts is a mod that allows you to customize how the elements of your profile page are displayed
 
 <img src="logo.png" width="150" alt="the mod's logo" />
 
