@@ -10,5 +10,8 @@
 	"name": "Profile Layouts",
 	"version": "v1.0.0",
 	"developer": "BlackHoleMX",
-	"description": ""
+	"description": "Select between layouts for your profile.",
+	"dependencies" : {
+		"geode.node-ids" : ">=1.19.0"
+	}
 }

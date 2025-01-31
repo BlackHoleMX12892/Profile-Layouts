@@ -4,13 +4,18 @@
 
 using namespace geode::prelude;
 
-class MyPopup : public geode::Popup<std::string const&> {
+class MyPopup : public Popup<std::string const&> {
 protected:
     bool setup(std::string const& value) override {
-        this->setTitle("Layout Selection");
+        this->setTitle("Select Layout");
 
-        auto label = CCLabelBMFont::create(value.c_str(), "bigFont.fnt");
-        m_mainLayer->addChildAtPosition(label, Anchor::Center);
+        auto buttonsmenu = CCMenu::create();
+        auto spr = ButtonSprite::create("Layout 1");
+        auto btn = CCMenuItemSpriteExtra::create(spr, this, nullptr);
+        
+        buttonsmenu->addChild(btn);
+
+        m_mainLayer->addChildAtPosition(buttonsmenu, Anchor::Center);
 
         return true;
     }
@@ -18,7 +23,7 @@ protected:
 public:
     static MyPopup* create(std::string const& text) {
         auto ret = new MyPopup();
-        if (ret->initAnchored(240.f, 160.f, text)) {
+        if (ret->initAnchored(300.f, 200.f, text)) {
             ret->autorelease();
             return ret;
         }

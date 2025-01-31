@@ -1,5 +1,6 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/ProfilePage.hpp>
+#include <Geode/ui/BasedButtonSprite.hpp>
 #include "layoutSelectionLayer.hpp"
 #include "getProfilePage.hpp"
 
@@ -20,10 +21,25 @@ class $modify(PLProfilePage, ProfilePage) {
                 log::error("CCLayer not found in ProfilePage");
                 return;
             } else {
-                auto socialsmenu = layer->getChildByID("player-menu");
-                socialsmenu->setVisible(false);
-                MyPopup::create("hello world!")->show();
+                auto leftmenu = layer->getChildByID("left-menu");
+
+                auto spr = CircleButtonSprite::createWithSpriteFrameName("GJ_paintBtn_001.png");
+                spr->setScale(0.7);
+
+                auto btn = CCMenuItemSpriteExtra::create(
+                    spr,
+                    layer,
+                    menu_selector(PLProfilePage::openLayoutSelectionLayer)
+                );
+
+                btn->setScale(0.8);
+
+                leftmenu->addChild(btn);
             }
         }
+    }
+
+    void openLayoutSelectionLayer(CCObject* sender) {
+        MyPopup::create("hello world!")->show();
     }
 };
